@@ -19,6 +19,11 @@ Route::get('/', function () {
     return view('welcome',['phones'=>$phones]);
 });
 
+Route::get('/product/{id}', function ($id) {
+    $phone = Phone::findOrFail($id);
+    return view('productModal',['phone' => $phone]);
+});
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
