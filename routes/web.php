@@ -1,5 +1,6 @@
 <?php
 
+use App\Phone;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $phones= Phone::all();
+    return view('welcome',['phones'=>$phones]);
 });
 
 
